@@ -997,8 +997,44 @@ const input = `4-5 m: mmpth
 2-3 g: gggl
 19-20 q: qqqqqxqqqqqqqqqqqqwd
 4-11 n: ljgdnkgftmsvntnn
-16-19 t: tttttttttttttttttttt`
+16-19 t: tttttttttttttttttttt`;
 
-const convertData = input.split('\n')
-const jsonObj = JSON.parse(convertData)
-console.table(JSON.parse(convertData))
+function transformData(string) {
+  result = {
+    low: null,
+    high: null,
+    letter: null,
+    password: null,
+  };
+
+  const parts = string.split(" ");
+  const subParts = parts[0].split("-");
+  result.low = Number(subParts[0]);
+  result.high = Number(subParts[1]);
+  result.letter = parts[1][0];
+  result.password = parts[2];
+
+  return result;
+}
+
+function createPasswordArray(input) {
+  const convertData = input.split("\n");
+  return convertData.map((entry) => transformData(entry));
+}
+
+function passwordValidator(obj) {
+  const count = obj.password.split("").filter((letter) => letter === obj.letter)
+    .length;
+  return count >= obj.low && count <= obj.high;
+}
+
+function countValidPasswords(objArray) {
+  let result = 0;
+  for (obj of objArray) {
+    if (passwordValidator(obj)) result++;
+  }
+  return result;
+}
+
+const data = createPasswordArray(input);
+console.log(countValidPasswords(data));

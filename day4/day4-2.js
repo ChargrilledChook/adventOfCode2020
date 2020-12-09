@@ -1196,9 +1196,12 @@ function validateProps(passport) {
     return false;
   if (!passport.pid.match(/^\d{9}\b$/)) return false;
 
-  console.log(passport.pid);
+  //console.log(passport.hgt);
+  heights.push(passport.hgt);
   return true;
 }
 
+const heights = [];
+console.log(heights.sort());
 countValidPassports(passportData, validPassportKeys);
-console.log(countValidPassports(passportData, validPassportKeys));
+//console.log(countValidPassports(passportData, validPassportKeys));

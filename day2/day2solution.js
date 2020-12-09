@@ -999,6 +999,7 @@ const input = `4-5 m: mmpth
 4-11 n: ljgdnkgftmsvntnn
 16-19 t: tttttttttttttttttttt`;
 
+// Massage Data
 function transformData(string) {
   result = {
     low: null,
@@ -1016,25 +1017,41 @@ function transformData(string) {
 
   return result;
 }
-
 function createPasswordArray(input) {
   const convertData = input.split("\n");
   return convertData.map((entry) => transformData(entry));
 }
 
+// Part One
 function passwordValidator(obj) {
   const count = obj.password.split("").filter((letter) => letter === obj.letter)
     .length;
   return count >= obj.low && count <= obj.high;
 }
 
-function countValidPasswords(objArray) {
+function countValidPasswords(objArray, policy) {
   let result = 0;
   for (obj of objArray) {
-    if (passwordValidator(obj)) result++;
+    if (policy(obj)) result++;
   }
   return result;
 }
+// Part Two
+function newPolicy(pwordObj) {
+  let pwordSplit = pwordObj.password.split("");
+  return (
+    (pwordSplit[pwordObj.low - 1] === pwordObj.letter &&
+      pwordSplit[pwordObj.high - 1] !== pwordObj.letter) ||
+    (pwordSplit[pwordObj.high - 1] === pwordObj.letter &&
+      pwordSplit[pwordObj.low - 1] !== pwordObj.letter)
+  );
+}
 
+// Results
 const data = createPasswordArray(input);
-console.log(countValidPasswords(data));
+
+// 1
+console.log(countValidPasswords(data, passwordValidator));
+
+// 2
+console.log(countValidPasswords(data, newPolicy));

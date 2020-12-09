@@ -1090,6 +1090,41 @@ function countValidPasswords(objArray) {
 //passwordValidator(testObj);
 //console.log(countValidPasswords(objArray));
 
+// Part One
 const data = createPasswordArray(input);
-console.table(data);
-console.log(countValidPasswords(data));
+//console.table(data);
+//console.log(countValidPasswords(data));
+
+function newPolicy(pwordObj) {
+  let pwordSplit = pwordObj.password.split("");
+  if (
+    (pwordSplit[pwordObj.low - 1] === pwordObj.letter &&
+      pwordSplit[pwordObj.high - 1] !== pwordObj.letter) ||
+    (pwordSplit[pwordObj.high - 1] === pwordObj.letter &&
+      pwordSplit[pwordObj.low - 1] !== pwordObj.letter)
+  ) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+function tallyNewPolicy(passwords) {
+  let result = 0;
+  for (entry of passwords) {
+    result += newPolicy(entry);
+  }
+  return result;
+}
+
+//console.table(data);
+console.log(tallyNewPolicy(data));
+
+// testObj = {
+//   low: 1,
+//   high: 3,
+//   letter: "a",
+//   password: "abcde",
+// };
+
+//console.log(newPolicy(testObj));

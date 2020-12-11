@@ -1,4 +1,5 @@
-const numbers = [1825,
+const numbers = [
+  1825,
   1944,
   1802,
   1676,
@@ -197,31 +198,34 @@ const numbers = [1825,
   1746,
   2006,
   1949,
-  1784
-]
-// Which two sum to 2020? find then multiply together
+  1784,
+];
+// Part One - Which two sum to 2020? find then multiply together
 
-const twentyTwenty = function twentyTwenty(numbers){
+const twentyTwenty = function twentyTwenty(numbers) {
   let result;
-  for(num of numbers){
-    for(num2 of numbers) {
-      if(num + num2 === 2020) result = [num, num2]
+  for (num of numbers) {
+    for (num2 of numbers) {
+      if (num + num2 === 2020) result = [num, num2];
     }
   }
   return result[0] * result[1];
-}
+};
 
-const twentyTwentyThree = function twentyTwentyThree(){
+// Part Two - Which three sum together
+const twentyTwentyThree = function twentyTwentyThree() {
   let result;
-  for(num of numbers){
-    for(num2 of numbers) {
-      for(num3 of numbers){
-        if(num + num2 + num3 === 2020) result = [num, num2, num3]
+  for (num of numbers) {
+    for (num2 of numbers) {
+      for (num3 of numbers) {
+        if (num + num2 + num3 === 2020) result = [num, num2, num3];
       }
     }
   }
   return result[0] * result[1] * result[2];
-}
+};
 
-
-console.log(twentyTwentyThree(numbers))
+console.log("Part 1:");
+console.log(twentyTwenty(numbers));
+console.log("Part 2:");
+console.log(twentyTwentyThree(numbers));

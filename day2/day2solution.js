@@ -1050,8 +1050,7 @@ function newPolicy(pwordObj) {
 // Results
 const data = createPasswordArray(input);
 
-// 1
+console.log("Part 1:");
 console.log(countValidPasswords(data, passwordValidator));
-
-// 2
+console.log("Part 2:");
 console.log(countValidPasswords(data, newPolicy));

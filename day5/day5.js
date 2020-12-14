@@ -855,3 +855,12 @@ const seatIds = seatArray.map((seat) => binaryToId(seat));
 const max = Math.max(...seatIds);
 console.log("Part one: ");
 console.log(max);
+
+// Part 2
+const seatList = seatIds.sort((a, b) => a - b);
+// This finds the seat where the next seat is missing. Add 1 to find the missing seat
+const nextSeatMissing = seatList.find(
+  (val, idx) => val + 1 !== seatList[idx + 1]
+);
+console.log("Part 2:");
+console.log(nextSeatMissing + 1);

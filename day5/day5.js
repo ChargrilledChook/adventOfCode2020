@@ -849,9 +849,11 @@ function findSeatId(range, char) {
   return result;
 }
 
-// Part 1
+// Set up
 const seatArray = rawData.split("\n");
 const seatIds = seatArray.map((seat) => binaryToId(seat));
+
+// Part 1
 const max = Math.max(...seatIds);
 console.log("Part one: ");
 console.log(max);

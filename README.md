@@ -25,7 +25,7 @@ Each day has it's own index.html, the solutions for the day will be logged to th
 - [x] Part 2
 
 ### Day 5
-- [ ] Part 1
+- [x] Part 1
 - [ ] Part 2
 
 ### Day 6

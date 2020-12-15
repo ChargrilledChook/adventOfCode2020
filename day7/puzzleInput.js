@@ -1,4 +1,4 @@
-export const rawPuzzleData = `pale turquoise bags contain 3 muted cyan bags, 5 striped teal bags.
+const rawPuzzleData = `pale turquoise bags contain 3 muted cyan bags, 5 striped teal bags.
 light tan bags contain 5 posh tomato bags.
 shiny coral bags contain 2 muted bronze bags.
 wavy orange bags contain 4 faded tomato bags.
@@ -592,3 +592,6 @@ posh beige bags contain 3 vibrant turquoise bags, 3 dotted lime bags.
 light aqua bags contain 2 mirrored teal bags, 1 vibrant lime bag, 1 dim olive bag.
 muted tomato bags contain 5 dim lavender bags.
 dim coral bags contain 4 shiny magenta bags, 4 drab violet bags, 5 clear brown bags.`;
+
+export default rawPuzzleData;
+("foo");

@@ -1,3 +1,3 @@
-import { rawPuzzleData } from "./puzzleInput.js";
+import rawData from "./puzzleInput.js";
 
-console.log(rawPuzzleData);
+console.log(rawData);

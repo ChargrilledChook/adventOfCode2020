@@ -1,4 +1,4 @@
-wzaopvscxknyjtiul
+const rawPuzzleData = `wzaopvscxknyjtiul
 belforsgdhuvmwc
 
 kiocpzjhsetqnwbl
@@ -2196,4 +2196,6 @@ zfwrgby
 
 gjnbfartdoiem
 ajbtgermdqnfio
-mfijcthadgnobuew
+mfijcthadgnobuew`;
+
+export default rawPuzzleData;
